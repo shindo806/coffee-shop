@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
 
+import { ReactComponent as Logo } from '../Images/logo/logo-white.svg';
 export default class NavBar extends Component {
   state = { activeItem: 'home' }
 
@@ -11,31 +12,35 @@ export default class NavBar extends Component {
 
     return (
       <Menu secondary>
-        <Menu.Item
-          name='home'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='friends'
-          active={activeItem === 'friends'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Menu position='right'>
+        <div className="container">
           <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
+            <div className='logo'>
+              <Logo className='logo-svg' />
+              <span className='logo-title'>Coffee IT</span>
+            </div>
           </Menu.Item>
           <Menu.Item
-            name='logout'
-            active={activeItem === 'logout'}
+            name='Menu'
+            active={activeItem === 'Menu'}
             onClick={this.handleItemClick}
           />
-        </Menu.Menu>
+          <Menu.Item
+            name='Coffee Story'
+            active={activeItem === 'Coffee Story'}
+            onClick={this.handleItemClick}
+          />
+
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' className='search-input' />
+            </Menu.Item>
+            <Menu.Item
+              name='Login'
+              active={activeItem === 'Login'}
+              onClick={this.handleItemClick}
+            />
+          </Menu.Menu>
+        </div>
       </Menu>
     )
   }
